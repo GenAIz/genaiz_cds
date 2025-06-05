@@ -1,0 +1,9 @@
+﻿participant_identifier,clinical_group,age,sex,race,ethnicity,education_level,salary_bracket,nationality,made up discrete,made up continuous,made up currency,made up date,made up duration,made up ignore
+s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14,s15
+,,,,,,,,,discrete,continuous,currency,date,duration,ignore
+source,source,source,source,source,source,source,source,source,source,source,source,source,source,source
+!unknown,!unknown,!unknown,!unknown,!unknown,!unknown,!unknown,!unknown,!unknown,!unknown,!unknown,!unknown,!unknown,!unknown,!unknown
+id1,g1,10,M,purple,orange,some,35000 - 38000,n1,1,1.3,234,2014-10-20,5,34
+id2,g1,45,F,yellow,blue,too much,20 - 40,n2,2,2.3,4536.54,2025-03-07,6,moo
+id3,g2,13,M,green,pink,just right,50 - 1000000,n3,3,3.3,123,2019-01-31,8.7,blar123
+id4,!unknown,!unknown,!unknown,!unknown,!unknown,!unknown,!unknown,!unknown,!unknown,!unknown,!unknown,!unknown,!unknown,!unknown

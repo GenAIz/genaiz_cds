@@ -1,0 +1,9 @@
+﻿participant_identifier,experimental_condition,sample_identifier,made up continuous,made up currency,made up numeric,made up ignore
+s1,s2,s3,s11,s12,s14,s15
+,,,continuous,currency,numeric,ignore
+source,source,source,source,source,source,source
+-1,-1,-1,-1,-1,-1,-1
+1,101,23,0,0,0,0
+2,101,23,0,0,1,0
+3,102,43,0,0,0,0
+4,102,54,0,0,0,0

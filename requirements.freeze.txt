@@ -1,0 +1,9 @@
+build==1.2.2.post1
+joblib==1.4.2
+numpy==2.2.3
+packaging==24.2
+pyproject_hooks==1.2.0
+scikit-learn==1.6.1
+scipy==1.15.2
+threadpoolctl==3.6.0
+tomli==2.2.1

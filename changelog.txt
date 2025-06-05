@@ -1,0 +1,18 @@
+Version 0.8.0
+- initial version with version number matching standard documentation
+Version 0.8.1
+- made compatible with python 10
+Version 0.8.2
+- better quoting of values in error strings
+- fixed a bug where target, categorical and boolean values were not allowed to have commas
+- unknown values can no longer be strings of whitespace
+- testing sparse matrices with issparse
+- metadata is checked for duplicate column names
+- metadata is checked for indexes starting at 0
+- created string constants for required columns
+- now validate that metadata indexes match column indexes: [0, n] matching
+- created utility functions
+Version 0.9.0
+- added mapping and fill_value to metadata
+- added ML utils (including CLI) that can convert data to numerical form ready for ML
+- various other small improvements and bug fixes
