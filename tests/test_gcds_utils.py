@@ -187,6 +187,28 @@ class TestGCDSUtils(unittest.TestCase):
         col = gcds_utils.copy_table_column(table_sp, 1)
         self.assertTrue(np.all(col.todense().flatten() == np.array([0, 4, 2, 4])))
 
+    def test_filter_table_rows(self):
+        table = [[0, 0, 1], [0, 4, 0], [0, 2, 0], [0, 4, 0]]
+        ftable = gcds_utils.filter_table_rows(table, [1, 2])
+        self.assertEqual(ftable, [[0, 4, 0], [0, 2, 0]])
+        table_np = np.array(table)
+        ftable = gcds_utils.filter_table_rows(table_np, [1, 2])
+        self.assertTrue(np.all(ftable == np.array([[0, 4, 0], [0, 2, 0]])))
+        table_sp = scipy.sparse.csc_matrix(([1, 4, 2, 4], ([0, 1, 2, 3], [2, 1, 1, 1])), (4, 3))
+        ftable = gcds_utils.filter_table_rows(table_sp, [1, 2])
+        self.assertTrue(np.all(ftable.todense() == np.array([[0, 4, 0], [0, 2, 0]])))
+
+    def test_drop_table_rows(self):
+        table = [[0, 0, 1], [0, 4, 0], [0, 2, 0], [0, 4, 0]]
+        ftable = gcds_utils.drop_table_rows(table, [1])
+        self.assertEqual(ftable, [[0, 0, 1], [0, 2, 0], [0, 4, 0]])
+        table_np = np.array(table)
+        ftable = gcds_utils.drop_table_rows(table_np, [1])
+        self.assertTrue(np.all(ftable == np.array([[0, 0, 1], [0, 2, 0], [0, 4, 0]])))
+        table_sp = scipy.sparse.csc_matrix(([1, 4, 2, 4], ([0, 1, 2, 3], [2, 1, 1, 1])), (4, 3))
+        ftable = gcds_utils.drop_table_rows(table_sp, [1])
+        self.assertTrue(np.all(ftable.todense() == np.array([[0, 0, 1], [0, 2, 0], [0, 4, 0]])))
+
     def test_filter_table_columns(self):
         table = [[0, 0, 1], [0, 4, 0], [0, 2, 0], [0, 4, 0]]
         ftable = gcds_utils.filter_table_columns(table, [1, 2])

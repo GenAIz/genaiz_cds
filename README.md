@@ -13,7 +13,7 @@ __NOTE__: Compressed sparse column (CSC) format is preferred for sparse matrices
 # Setup
 To setup this repository do the following from within the repository's root:
 ```
-python3.10 -m venv pyvenv
+python3.14 -m venv pyvenv
 source pyvenv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt

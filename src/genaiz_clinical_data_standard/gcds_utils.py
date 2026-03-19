@@ -255,12 +255,54 @@ def copy_table_column(table: list[list] | np.ndarray | scipy.sparse.spmatrix,
     return col
 
 
-def filter_table_columns(table: list[list] | np.ndarray | scipy.sparse.spmatrix, keep: list[int] | set[int]) \
+def filter_table_rows(table: list[list] | np.ndarray | scipy.sparse.spmatrix, keep: list[int] | set[int]) \
         -> list[list] | np.ndarray | scipy.sparse.spmatrix:
     """
     Creates a filtered copy of the table.
     :param table: the table to copy
     :param keep: the rows to keep
+    :return: a filtered copy of the table
+    """
+    # due to mem concerns input is modified
+    if len(keep) > num_rows(table):
+        raise ValueError("Cannot have 'keep' contain more values than rows.")
+    if isinstance(keep, set):
+        keep = list(keep)
+        keep.sort()
+    if isinstance(table, np.ndarray) or scipy.sparse.issparse(table):
+        new_table = table[keep, :]
+    else:
+        new_table = []
+        for i in keep:
+            new_table.append(copy.deepcopy(table[i]))
+    return new_table
+
+
+def drop_table_rows(table: list[list] | np.ndarray | scipy.sparse.spmatrix, drop: list[int] | set[int]) \
+        -> list[list] | np.ndarray | scipy.sparse.spmatrix:
+    """
+    Creates a copy of the table without the specified rows.
+    :param table: the table
+    :param drop: rows to drop
+    :return: a copy of the table without the specified rows
+    """
+    if isinstance(drop, list):
+        drop = set(drop)
+    keep: list[int] = []
+    length = len(table) if isinstance(table, list) else table.shape[0]
+    for i in range(length):
+        if i in drop:
+            continue
+        keep.append(i)
+    return filter_table_rows(table, keep)
+
+
+def filter_table_columns(table: list[list] | np.ndarray | scipy.sparse.spmatrix, keep: list[int] | set[int]) \
+        -> list[list] | np.ndarray | scipy.sparse.spmatrix:
+    """
+    Creates a filtered copy of the table.
+    :param table: the table to copy
+    :param keep: the columns to keep
     :return: a filtered copy of the table
     """
     # due to mem concerns input is modified
