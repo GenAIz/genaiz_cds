@@ -16,3 +16,5 @@ Version 0.9.0
 - added mapping and fill_value to metadata
 - added ML utils (including CLI) that can convert data to numerical form ready for ML
 - various other small improvements and bug fixes
+Version 1.0.0
+- added row filtering
