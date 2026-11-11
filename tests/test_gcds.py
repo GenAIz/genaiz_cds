@@ -136,6 +136,12 @@ class TestInfer(unittest.TestCase):
         self.assertEqual(metadata[0].dtype, "")
         self.assertEqual(metadata[1].dtype, gcds.T_CATEGORICAL)
 
+    def test_sample_identifier(self):
+        self.assertEqual(gcds.COL_SAMPLE_IDENTIFIER, "sample_identifier")
+        self.assertEqual(gcds.SEROLOGY_INFERENCE_MAP[gcds.COL_SAMPLE_IDENTIFIER], gcds.T_IDENTIFIER)
+        self.assertEqual(gcds.FLOW_CYTOMETRY_INFERENCE_MAP[gcds.COL_SAMPLE_IDENTIFIER], gcds.T_IDENTIFIER)
+        self.assertNotIn(gcds.COL_SAMPLE_IDENTIFIER, gcds.DEMOGRAPHIC_INFERENCE_MAP)
+
 
 class TestInspect(unittest.TestCase):
 
