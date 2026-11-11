@@ -18,3 +18,5 @@ Version 0.9.0
 - various other small improvements and bug fixes
 Version 1.0.0
 - added row filtering
+Version 1.0.1
+- added COL_SAMPLE_IDENTIFIER constant

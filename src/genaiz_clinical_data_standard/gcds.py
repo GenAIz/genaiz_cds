@@ -48,6 +48,7 @@ COL_PARTICIPANT_ID = "participant_identifier"
 COL_CLINICAL_GROUP = "clinical_group"
 COL_COLLECTION_NAME = "collection_name"
 COL_EXPERIMENTAL_CONDITION = "experimental_condition"
+COL_SAMPLE_IDENTIFIER = "sample_identifier"
 
 # Mappings from column name to type.  Allows users
 # to omit the type when completing data.
@@ -67,7 +68,7 @@ DEMOGRAPHIC_INFERENCE_MAP = {
 SEROLOGY_INFERENCE_MAP = {
     COL_PARTICIPANT_ID: T_IDENTIFIER,
     COL_COLLECTION_NAME: T_CATEGORICAL,
-    "sample_identifier": T_IDENTIFIER,
+    COL_SAMPLE_IDENTIFIER: T_IDENTIFIER,
     "sample_collection_date": T_DATE,
     "assay_type": T_CATEGORICAL,
     "initial_symptoms": T_SET,
@@ -80,7 +81,7 @@ SEROLOGY_INFERENCE_MAP = {
 FLOW_CYTOMETRY_INFERENCE_MAP = {
     COL_PARTICIPANT_ID: T_IDENTIFIER,
     COL_EXPERIMENTAL_CONDITION: T_CATEGORICAL,
-    "sample_identifier": T_IDENTIFIER
+    COL_SAMPLE_IDENTIFIER: T_IDENTIFIER
 }
 
 INFERENCE_MAP = {
